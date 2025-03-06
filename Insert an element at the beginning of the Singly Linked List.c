@@ -18,12 +18,12 @@ struct node* add_at_beginning(struct node* head)
     newNode->next = head;
     head = newNode;
     
-    printf("After adding element at beginning: ");
-    while(newNode != 0)
-    {
-        printf("%d ", newNode->data);
-        newNode = newNode->next;
-    }
+    return head;
+    /*
+    In C, function arguments are passed by value, so modifying head 
+    inside add_at_beginning() only affects the local copy. Returning 
+    the updated head ensures that main() gets the new starting node 
+    of the linked list.*/
 }
 
 int main()
@@ -50,6 +50,15 @@ int main()
         scanf("%d", &choice);
     }
 
-    add_at_beginning(head);
+    head = add_at_beginning(head);
+    
+    printf("After adding element at beginning: ");
+    temp = head;
+    while(temp != NULL)
+    {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    }
+    printf("\n");
     
 }
