@@ -10,6 +10,7 @@ struct node
 
 struct node* add_at_position(struct node* head, int count)
 {
+    
     struct node *newNode, *temp;
     int i = 1, position;
     printf("Enter a position: ");
@@ -45,7 +46,7 @@ struct node* add_at_position(struct node* head, int count)
 int main()
 {
     struct node *head, *newNode, *temp;
-
+    
     head = 0;
     int choice, count = 0;
     printf("Do you want to create a linked list (1/0)? ");
@@ -62,21 +63,10 @@ int main()
             temp->next = newNode;
             temp = newNode;
         }
+        count++; ////counting the number of nodes
         printf("Do you want to create a new node (0/1)? ");
         scanf("%d", &choice);
     }
-
-    temp = head;
-    //counting the number of nodes
-    while(temp != NULL) 
-    {
-        count++;
-        temp = temp->next;
-    }
-    
-    
-    
-
     head = add_at_position(head, count);
     
     printf("\nThe updated linked list is: ");
